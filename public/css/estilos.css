@@ -1,0 +1,17 @@
+header {
+    background: #2c3e50;
+    color:#fff}
+
+fila3{
+
+    background-attachment:#fff ;
+}
+
+footer{
+    background:#ffcc23;
+    width: 100%;
+    bottom: 0;
+    position:fixed;
+    height: 65px;
+    font-weight: bold;
+}
