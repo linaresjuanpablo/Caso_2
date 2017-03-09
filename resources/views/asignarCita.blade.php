@@ -72,8 +72,8 @@
 
 
                   <div class="form-group">
-                     <center> {!! Form::submit('Guardar datos', ['class' => 'btn btn-success ' ] ) !!}
-                     <a href={{ $url = route('citas') }} class="btn btn-success"><-- Regresar</a>
+                     <center> {!! Form::submit('Guardar datos', ['class' => 'btn btn-primary ' ] ) !!}
+                     <a href={{ $url = route('citas') }} class="btn btn-primary"><-- Regresar</a>
                        </center>
 
                   </div>

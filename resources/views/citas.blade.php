@@ -36,6 +36,7 @@
          </table>
 
          <a href={{ $url = route('asigCita') }} class="btn btn-primary">Registrar nueva cita</a>
+         <a href={{ $url = route('admin') }} class="btn btn-primary"><-- Regresar</a>
        </div>
 
 
