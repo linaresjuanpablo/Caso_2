@@ -18,5 +18,10 @@ class controladorCentroMedico extends Controller
         return view('asignarCita');
     }
 
+  public function GestionPaciente()
+  {
+    return view('paciente/GestionPaciente');
+  }
+
 }
 
