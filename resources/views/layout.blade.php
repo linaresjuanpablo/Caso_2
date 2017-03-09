@@ -4,17 +4,21 @@
     <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/estilos.css" >
+    <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+
+
+
 </head>
 <body>
+
   <header>
 
       <div class="container">
      <section class="row " >
       <section class="col-md-3">
 
-        <img src="images/clinicahead.png"  class="img-responsive" alt="Responsive image">
+        <img src={{ asset('images/clinicahead.png') }}  class="img-responsive" alt="Responsive image">
       </section>
 
         <section class="col-md-9" style="margin-top:40px;font-size:30px;text-align:left" >
@@ -34,13 +38,13 @@
 
             </div>
             </section>
-    <footer>
+    <footer class="clase-general">
         <div class="container">
            <section style="margin-top:10px;font-size:10px;text-align:center">
 
            Taller:Desarrollo web con laravel. Caso de estudio 2 <br>
            Módulo: Procesos Agiles de Desarrollo de Software <br>
-           Maestria en Gestión y Desarrollo de Proyectos de Sofware <br>
+           Maestria en Gestión y Desarrollo de Proyectos de Software <br>
            Universidad Autónoma manizales
 
            </section>

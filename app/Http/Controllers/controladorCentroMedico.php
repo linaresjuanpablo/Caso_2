@@ -10,7 +10,13 @@ class controladorCentroMedico extends Controller
         return view('prueba');
     }
 
+  function gestionCitas(){
+        return view('citas');
+    }
 
+    function asignarCitas(){
+        return view('asignarCita');
+    }
 
 }
 

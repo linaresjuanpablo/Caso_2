@@ -11,8 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-  Route::get('prueba', 'controladorCentroMedico@prueba');
+  Route::get('centroMedico/prueba','controladorCentroMedico@prueba');
+  Route::get('centroMedico/asignarCitas',["as" => "asigCita", "uses" => "controladorCentroMedico@asignarCitas"]);
+  Route::get('centroMedico/citas', ["as" => "citas", "uses" => "controladorCentroMedico@gestionCitas"]);
