@@ -6,11 +6,13 @@ use Illuminate\Http\Request;
 
 class controladorCentroMedico extends Controller
 {
-     function prueba(){
-        return view('prueba');
-    }
-
-
-
+  public function prueba()
+  {
+     return view('prueba');
+  }
+  public function GestionPaciente()
+  {
+    return view('paciente/GestionPaciente');
+  }
 }
 
