@@ -20,7 +20,7 @@ class controladorCentroMedico extends Controller
 
   public function GestionPaciente()
   {
-    return view('paciente/GestionPaciente');
+    return view('paciente/asignarPaciente');
   }
 
 
@@ -44,4 +44,7 @@ class controladorCentroMedico extends Controller
         return view('medico/gestionMedico');
     }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> caso_2/master
