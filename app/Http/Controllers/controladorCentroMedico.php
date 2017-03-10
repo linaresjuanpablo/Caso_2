@@ -23,11 +23,14 @@ class controladorCentroMedico extends Controller
     return view('paciente/GestionPaciente');
   }
 
+<<<<<<< HEAD
   public function Login()
   {
     return view('login/Login');
   }
 
+=======
+>>>>>>> origin/master
  public function pacientes()
   {
     return view('paciente/pacientes');
