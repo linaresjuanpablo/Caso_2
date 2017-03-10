@@ -14,5 +14,9 @@ class controladorCentroMedico extends Controller
   {
     return view('paciente/GestionPaciente');
   }
+  public function Login()
+  {
+    return view('login/Login');
+  }
 }
 

@@ -17,3 +17,4 @@ Route::get('/', function () {
 
 Route::get('prueba', 'controladorCentroMedico@prueba');
 Route::get('paciente/GestionPaciente', 'controladorCentroMedico@GestionPaciente');
+Route::get('login', 'controladorCentroMedico@Login');
