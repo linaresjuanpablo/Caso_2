@@ -22,11 +22,7 @@ class controladorCentroMedico extends Controller
   {
     return view('paciente/GestionPaciente');
   }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> caso_2/master
+
 
   public function Login()
   {
@@ -44,7 +40,6 @@ class controladorCentroMedico extends Controller
   }
 
 }
->>>>>>> caso_2/master
 
   public function Login()
   {
