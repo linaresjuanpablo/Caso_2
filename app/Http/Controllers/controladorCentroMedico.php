@@ -44,7 +44,4 @@ class controladorCentroMedico extends Controller
         return view('medico/gestionMedico');
     }
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> caso_2/master
