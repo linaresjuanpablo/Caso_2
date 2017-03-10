@@ -7,7 +7,7 @@
         <br><br>
        <center>
 
-        <img src={{ asset('images/medico.jpg') }}  class="img-responsive" alt="Responsive image"><br>
+           <a href=""><img src={{ asset('images/medico.jpg') }}  class="img-responsive" alt="Responsive image"></a><br>
         <a href="">Gestión de Médicos</a><br>
         </center>
     </section>

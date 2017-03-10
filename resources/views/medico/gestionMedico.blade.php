@@ -26,11 +26,22 @@
     <table style="width: 430px; height: 342px;" border="2" cellpadding="0">
       <tbody>
         <tr align="center">
-          <td colspan="2" rowspan="1">INFORMACIÓN NUEVO ESPECIALISTA</td>
+          <td colspan="2" rowspan="1">INFORMACIÓN ESPECIALISTA</td>
         </tr>
         <tr>
-          <td style="width: 203.117px;">Número de Documento:</td>
+          <td style="width: 203.117px;">Documento:</td>
           <td>{!! Form::text('numDocumento') !!}
+          </td>
+        </tr>
+          <tr>
+          <td>Tipo Documento:</td>
+          <td>{!! Form::text('epsPaciente') !!}
+          </td>
+        </tr>
+        <tr>
+            <tr>
+          <td>Especialidad:</td>
+          <td>{!! Form::text('nombresAcudiente') !!}
           </td>
         </tr>
         <tr>
@@ -49,35 +60,20 @@
           </td>
         </tr>
         <tr>
-          <td>Fecha de Nacimiento:</td>
+          <td>Email:</td>
           <td>{!! Form::text('fechaNacimiento') !!}
           </td>
         </tr>
-        <tr>
-          <td>EPS:</td>
-          <td>{!! Form::text('epsPaciente') !!}
-          </td>
-        </tr>
-        <tr>
+
           <td>Teléfono:</td>
           <td>{!! Form::text('telefonoPaciente') !!}
           </td>
         </tr>
         <tr>
-          <td>Dirección:</td>
-          <td>{!! Form::text('direccionPaciente') !!}
-          </td>
-        </tr>
+
+
         <tr>
-          <td>Acudiente:</td>
-          <td>{!! Form::text('nombresAcudiente') !!}
-          </td>
-        </tr>
-        <tr>
-          <td>Teléfono Acudiente:</td>
-          <td>{!! Form::text('telefonoAcudiente') !!}
-          </td>
-        </tr>
+
         <tr align="center">
           <td colspan="2" rowspan="1">{!! Form::submit('Guardar') !!}</td>
         </tr>

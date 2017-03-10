@@ -20,3 +20,4 @@
     Route::get('paciente/GestionPaciente',["as" => "Gpacientes", "uses" => "controladorCentroMedico@GestionPaciente"] );
     Route::get('paciente/pacientes',["as" => "pacientes", "uses" => "controladorCentroMedico@pacientes"] );
     Route::get('centroMedico/administrador', ["as" => "admin", "uses" => "controladorCentroMedico@menuAdministrador"]);
+    Route::get('medico/medicoNuevo', ["as" => "admin", "uses" => "controladorCentroMedico@medico"]);
