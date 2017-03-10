@@ -20,7 +20,7 @@ class controladorCentroMedico extends Controller
 
   public function GestionPaciente()
   {
-    return view('paciente/GestionPaciente');
+    return view('paciente/asignarPaciente');
   }
 
  public function pacientes()
