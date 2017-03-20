@@ -1,9 +1,18 @@
-@extends('layouts.app')
+@extends('layouts.layout1')
 
-@section('content')
+@section('contenido')
 <div class="container">
+   <div class="row">
+   <div style="text-align:center;font-size:40px"></div>
+   <br>
+   <h1>Ingreso al sistema de personal asistencial y administrador de la clínica</h1>
+   <br><br><br>
+   </div>
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+
+        <div class="col-md-6">
+
+
             <div class="panel panel-default">
                 <div class="panel-heading">Login</div>
                 <div class="panel-body">
@@ -63,6 +72,16 @@
                 </div>
             </div>
         </div>
+
+        <div class="col-md-6">
+
+          <img src={{ asset('images/inicio.png') }}  class="img-responsive" alt="Responsive image">
+        </div>
+
     </div>
+    <div class="row">
+        <br><br>
+    </div>
+
 </div>
 @endsection
