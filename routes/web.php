@@ -11,7 +11,12 @@
 |
 */
 
-
+    //Rutas users
+     Route::get('users/create', ["as" => "userCreate", "uses" => "UserController@create"]);
+     Route::get('users/home', ["as" => "userHome", "uses" => "UserController@home"]);
+     Route::get('users/userManager', ["as" => "userAdmin", "uses" => "UserController@adminUser"]);
+     Route::group(['middleware' => 'auth'], function() { });
+     Route::resource('users', 'UserController');
 
     Route::get('/', 'controladorCentroMedico@Login');
     Route::get('centroMedico/prueba','controladorCentroMedico@prueba');

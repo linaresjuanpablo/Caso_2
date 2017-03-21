@@ -17,14 +17,16 @@ citas {
 
 
 .table-fixed tbody {
- text-align: center;
- font-size:12px;
- height: 200px;
  overflow-y: auto;
- width: 100%;
- display: block;
+ height: 300px;
+
 }
 
+section  content{
+    width: 150px;
+    height: 150px;
+    overflow: scroll;
+}
 
 
 footer{

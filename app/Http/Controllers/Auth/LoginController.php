@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+
 
 class LoginController extends Controller
 {
@@ -36,4 +38,27 @@ class LoginController extends Controller
     {
         $this->middleware('guest', ['except' => 'logout']);
     }
+
+    protected function redirectTo()
+   {
+        return 'users/home';
+
+    /*   $user = Auth::user();
+    if($user->tipo_usuario=='ADMINISTRADOR')
+      return 'users/home';
+    else
+        return 'paciente/pacientes';
+         //return redirect()->route('admin');
+         */
+}
+
+  protected function logout(Request $request){
+    $this->guard()->logout();
+    $request->session()->flush();
+    $request->session()->regenerate();
+
+    return redirect()->route('login');
+
+}
+
 }

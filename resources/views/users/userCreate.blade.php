@@ -3,11 +3,11 @@
 
 <section class="row" >
  <div class="container">
- <section class="col-md-2">
+ <section class="col-md-4">
    <citas>Gestión de usuarios del sistema</citas>
         <img src={{ asset('images/users.jpg') }}  class="img-responsive" alt="Responsive image">
  </section>
-<section class="col-md-2">
+<section class="col-md-8">
  <div class="panel panel-default">
    <div class="panel-heading"><h3 class="panel-title">Forumulario de registro de citas</h3></div>
     <div class="panel-body">

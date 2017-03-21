@@ -11,7 +11,6 @@
     <title>{{ config('app.name', 'Centro médico') }}</title>
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
@@ -60,39 +59,41 @@
                         <span class="icon-bar"></span>
                     </button>
 
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
-                </div>
 
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                    <!-- Branding Image -->
+                                    </div>
+
+
+                   <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                       @if (Auth::check())
+                        @if(Auth::user()->tipo_usuario=='ADMINISTRADOR')
+                          <li><a href="{{ route('userAdmin') }}">Administrar Usuarios</a></li>
+                        @endif
+                         <li><a href="{{ route('login') }}">Menú</a></li>
+                         <li><a href="{{ route('login') }}">Pacientes</a></li>
+                          <li><a href="{{ route('login') }}">Médicos</a></li>
+                          <li><a href="{{ route('login') }}">Citas</a></li>
+                          <li><a href="{{ route('login') }}">Reportes</a></li>
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
-                        @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->nombres .' ' .Auth::user()->apellidos  }} <span class="caret"></span>
-                                </a>
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                          {{ Auth::user()->nombres .' ' .Auth::user()->apellidos  }} <span class="caret"></span>
+                          </a>
+                          <ul class="dropdown-menu" role="menu">
+                            <li>
+                              <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                                Logout
+                             </a>
 
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
