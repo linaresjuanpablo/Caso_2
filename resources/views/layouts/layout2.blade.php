@@ -48,7 +48,7 @@
        <section class="col-md-12">
 
            <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
+            <div class="container>
                 <div class="navbar-header">
 
                     <!-- Collapsed Hamburger -->
@@ -111,7 +111,7 @@
    </section>
 
     <section>
-            <div class="container">
+            <div class="container-fluid">
              @yield('contenido')
 
             </div>

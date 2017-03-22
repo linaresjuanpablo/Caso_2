@@ -1,7 +1,7 @@
 @extends('layouts.layout2')
 @section('contenido')
 
-<div class="container">
+<div class="container-fluid">
  <section class="row" >
      <div>
          <h2>Gestión de usuarios del sistema</h2>
@@ -12,7 +12,7 @@
 
  <section class="row" >
 
-   <section class="col-md-3">
+   <section class="col-md-2">
        <br>
        <img src={{ asset('images/users.jpg') }}  class="img-responsive" alt="Responsive image">
     </section>
@@ -27,24 +27,35 @@
               <td>Apellidos</td>
               <td >Tipo usuario</td>
               <td>E-mail</td>
+              <td>Editar</td>
+              <td>Eliminar</td>
 
           </tr>
 
-          @for ($i = 0; $i < 10; $i++)
+          @foreach($list as $user)
            <tr>
-              @for ($j = 0; $j < 4; $j++)
-               <td >....</td>
-              @endfor
+             <td> {{ $user->nombres }} </td>
+             <td> {{ $user->apellidos }} </td>
+             <td> {{ $user->tipo_usuario }} </td>
+             <td> {{ $user->email }} </td>
+
+             <td><a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary">Editar datos</a></td>
+
+               <td>{!! Form::open([
+                'method' => 'DELETE',
+               'route' => ['users.destroy', $user->id]
+               ]) !!}
+               {!! Form::submit('Eliminar usuario', ['class' => 'btn btn-danger']) !!}
+               {!! Form::close() !!}
+              </td>
+
            </tr>
 
-          @endfor
+          @endforeach
 
          </table>
+          </div>
          </section>
-
-
-       </div>
-
 
 
     </section>
@@ -52,7 +63,7 @@
     <section class="row">
        <br>
        <center>
-        <a href={{ $url = route('asigCita') }} class="btn btn-primary">Registrar nuevo usuario</a>
+        <a href={{ $url = route('users.create') }} class="btn btn-primary">Registrar nuevo usuario</a>
          <a href={{ $url = route('admin') }} class="btn btn-primary"><-- Regresar</a>
         </center>
         <br>
