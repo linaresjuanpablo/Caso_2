@@ -25,7 +25,7 @@
  </div>
  @endif
  <div class="panel panel-default">
-   <div class="panel-heading"><h3 class="panel-title">Forumulario de edición de usuario sistema</h3></div>
+   <div class="panel-heading"><h3 class="panel-title">Formulario de edición de usuario sistema</h3></div>
     <div class="panel-body">
      {!! Form::model($data, ['method' => 'PATCH','route' => ['users.update', $data->id]])  !!}
 
@@ -49,7 +49,7 @@
  {!! Form::label('password', 'Password', ['class' => 'control-label']) !!}
  {!! Form::password('password', ['class' => 'form-control']) !!}
 </div>
-{!! Form::submit('Update User', ['class' => 'btn btn-primary']) !!}
+{!! Form::submit('Guardar datos', ['class' => 'btn btn-primary']) !!}
 {!! Form::close() !!}
 
      </div>

@@ -27,6 +27,7 @@ class LoginController extends Controller
      *
      * @var string
      */
+  //
     protected $redirectTo = '/home';
 
     /**
@@ -40,8 +41,9 @@ class LoginController extends Controller
     }
 
     protected function redirectTo()
-   {
-        return 'users/home';
+    {
+       // echo "hola";
+    return 'users/userManager';
 
     /*   $user = Auth::user();
     if($user->tipo_usuario=='ADMINISTRADOR')
@@ -50,7 +52,7 @@ class LoginController extends Controller
         return 'paciente/pacientes';
          //return redirect()->route('admin');
          */
-}
+  }
 
   protected function logout(Request $request){
     $this->guard()->logout();

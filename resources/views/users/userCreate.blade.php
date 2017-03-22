@@ -48,7 +48,7 @@
      </div>
 
       <div class="form-group">
-           <label for="tipo_usuario" class="col-sm-2 control-label">Tipo usuario:</label>
+           <label for="tipo_usuario" class="col-sm-2 control-label">E-Mail:</label>
         <div class="col-sm-10">
           <input type="email" class="form-control" id="email" name="email"  placeholder="Correo electrónico usuario">
         </div>
