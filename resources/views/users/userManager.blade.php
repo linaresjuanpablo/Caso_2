@@ -64,7 +64,7 @@
        <br>
        <center>
         <a href={{ $url = route('users.create') }} class="btn btn-primary">Registrar nuevo usuario</a>
-         <a href={{ $url = route('admin') }} class="btn btn-primary"><-- Regresar</a>
+
         </center>
         <br>
     </section>

@@ -71,7 +71,6 @@
                         @if(Auth::user()->tipo_usuario=='ADMINISTRADOR')
                           <li><a href="{{ route('userAdmin') }}">Administrar Usuarios</a></li>
                         @endif
-                         <li><a href="{{ route('login') }}">Menú</a></li>
                          <li><a href="{{ route('login') }}">Pacientes</a></li>
                           <li><a href="{{ route('login') }}">Médicos</a></li>
                           <li><a href="{{ route('login') }}">Citas</a></li>
