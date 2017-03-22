@@ -17,6 +17,13 @@
         <img src={{ asset('images/users.jpg') }}  class="img-responsive" alt="Responsive image">
  </section>
 <section class="col-md-8">
+@if($errors->any())
+ <div class="alert alert-danger">
+ @foreach($errors->all() as $error)
+ <p>{{ $error }}</p>
+ @endforeach
+ </div>
+ @endif
  <div class="panel panel-default">
    <div class="panel-heading"><h3 class="panel-title">Forumulario de registro de usuario sistema</h3></div>
     <div class="panel-body">
