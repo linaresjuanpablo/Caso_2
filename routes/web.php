@@ -21,16 +21,13 @@ Route::group(['middleware' => 'auth'], function() {
        //Pacientes
        Route::get('patients/patientManager', ["as" => "patientAdmin", "uses" => "PatientController@adminPatient"]);
        Route::resource('patients', 'PatientController');
-<<<<<<< HEAD
-
-=======
        //Medicos
        Route::get('doctors/doctorManager',["as" =>"doctorAdmin", "uses" => "DoctorController@adminDoctor"]);
        Route::resouce('doctors','DoctorController');
-    //Citas
+       //Citas
        Route::get('appointments/appointmentManager', ["as" => "appointmentAdmin", "uses" => "AppointmentController@adminAppointment"]);
        Route::resource('appointments', 'AppointmentController');
->>>>>>> origin/master
+
      });
 
 Route::get('/', 'controladorCentroMedico@Login');
