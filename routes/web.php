@@ -21,6 +21,9 @@ Route::group(['middleware' => 'auth'], function() {
        //Pacientes
        Route::get('patients/patientManager', ["as" => "patientAdmin", "uses" => "PatientController@adminPatient"]);
        Route::resource('patients', 'PatientController');
+       //Citas
+       Route::get('appointments/appointmentManager', ["as" => "appointmentAdmin", "uses" => "AppointmentController@adminAppointment"]);
+       Route::resource('appointments', 'AppointmentController');
      });
 Route::get('/', 'controladorCentroMedico@Login');
 Route::get('centroMedico/prueba','controladorCentroMedico@prueba');
