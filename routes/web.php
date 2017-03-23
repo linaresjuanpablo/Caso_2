@@ -21,7 +21,11 @@ Route::group(['middleware' => 'auth'], function() {
        //Pacientes
        Route::get('patients/patientManager', ["as" => "patientAdmin", "uses" => "PatientController@adminPatient"]);
        Route::resource('patients', 'PatientController');
+       //Medicos
+       Route::get('doctors/doctorManager',["as" =>"doctorAdmin", "uses" => "DoctorController@adminDoctor"]);
+       Route::resouce('doctors','DoctorController');
      });
+
 Route::get('/', 'controladorCentroMedico@Login');
 Route::get('centroMedico/prueba','controladorCentroMedico@prueba');
 Route::get('centroMedico/asignarCitas',["as" => "asigCita", "uses" => "controladorCentroMedico@asignarCitas"]);
