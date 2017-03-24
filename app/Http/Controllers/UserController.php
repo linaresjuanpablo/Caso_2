@@ -9,21 +9,26 @@ use Session;
 
 class UserController extends Controller
 {
-    public function home()
+    public function userHome()
     {
-     return view('users/userHome');
+     //$users = User::all();
+     //return view('users/userManager',['list' => $users]);
+      return view('users/userHome');
+     //return view('users/userHome');
     }
 
     public function adminUser()
     {
-    $users = User::all();
-    return view('users/userManager',['list' => $users]);
+     $users = User::all();
+     return view('users/userManager',['list' => $users]);
+
     }
 
     public function index(Request $request)
     {
-     $users = User::all();
-     return view('users.gestionUsuarios', ['list' => $users]);
+     //$users = User::all();
+     //return view('users/UserManager', ['list' => $users]);
+     return view('users.userHome');
     }
 
 
@@ -38,23 +43,27 @@ class UserController extends Controller
        $this->validate($request, [
        'nombres' => 'required | string | max:100',
        'apellidos' => 'required | string | max:100',
-       'email' => 'required | email',
+       'email' => 'required | email | unique:users,email',
        'password' => 'required | string | min:4 | max:64',
        ]);
 
        $input = $request->all();
        User::create($input);
        Session::flash('flash_message', 'User successfully added!');
-       $users = User::all();
-       return view('users/userManager',['list' => $users]);
-   }
+
+        $users = User::all();
+        return view('users/userManager',['list' => $users]);
+
+    }
 
    public function edit(Request $request, $id)
    {
      try
      {
-       $user = User::findOrFail($id);
-       return view('users/userEdit', ['data' => $user]);
+
+     $user = User::findOrFail($id);
+     return view('users/userEdit', ['data' => $user]);
+
      }
 
     catch(ModelNotFoundException $e)

@@ -31,7 +31,7 @@
   </header>
    <section class="row">
        <section class="col-md-12">
-           <nav class="navbar navbar-default navbar-static-top">
+           <nav class="navbar navbar-default role="navigation">
             <div class="container>
                 <div class="navbar-header">
                     <!-- Collapsed Hamburger -->
@@ -47,12 +47,13 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                        @if (Auth::check())
+                          <li><a href="{{ route('userHome') }}">Inicio</a></li>
                         @if(Auth::user()->tipo_usuario=='ADMINISTRADOR')
                           <li><a href="{{ route('userAdmin') }}">Administrar Usuarios</a></li>
                         @endif
                          <li><a href="{{ route('patientAdmin') }}">Pacientes</a></li>
-                          <li><a href="{{ route('login') }}">Médicos</a></li>
-                          <li><a href="{{ route('login') }}">Citas</a></li>
+                          <li><a href="{{ route('doctorAdmin') }}">Médicos</a></li>
+                          <li><a href="{{ route('appointmentAdmin') }}">Citas</a></li>
                           <li><a href="{{ route('login') }}">Reportes</a></li>
                     </ul>
                     <!-- Right Side Of Navbar -->

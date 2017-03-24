@@ -11,17 +11,25 @@
 |
 */
 
+
 //Rutas users
-Route::get('users/create', ["as" => "userCreate", "uses" => "UserController@create"]);
-Route::get('/', ["as" => "userHome", "uses" => "UserController@home"]);
+
+
+Route::get('usuarios', ["as" => "userH", "uses" => "UserController@adminUser"]);
 Route::group(['middleware' => 'auth'], function() {
        //Usuarios
+       Route::get('users/create', ["as" => "userCreate", "uses" => "UserController@create"]);
        Route::get('users/userManager', ["as" => "userAdmin", "uses" => "UserController@adminUser"]);
+       //
+
+       Route::get('users/userHome', ["as" => "userHome", "uses" => "UserController@userHome"]);
+       Route::get('users/index', ["as" => "userIndex", "uses" => "UserController@index"]);
        Route::resource('users', 'UserController');
        //Pacientes
        Route::get('patients/patientManager', ["as" => "patientAdmin", "uses" => "PatientController@adminPatient"]);
        Route::resource('patients', 'PatientController');
-       //Medicos
+
+     //Medicos
        Route::get('doctors/doctorManager', ["as" => "doctorAdmin", "uses" => "DoctorController@adminDoctor"]);
        Route::resource('doctors', 'DoctorController');
        //Citas
@@ -30,14 +38,6 @@ Route::group(['middleware' => 'auth'], function() {
 
      });
 
-Route::get('/', 'controladorCentroMedico@Login');
-Route::get('centroMedico/prueba','controladorCentroMedico@prueba');
-Route::get('centroMedico/asignarCitas',["as" => "asigCita", "uses" => "controladorCentroMedico@asignarCitas"]);
-Route::get('centroMedico/citas', ["as" => "citas", "uses" => "controladorCentroMedico@gestionCitas"]);
-Route::get('paciente/GestionPaciente',["as" => "Gpacientes", "uses" => "controladorCentroMedico@GestionPaciente"] );
-Route::get('paciente/pacientes',["as" => "pacientes", "uses" => "controladorCentroMedico@pacientes"] );
-Route::get('centroMedico/administrador', ["as" => "admin", "uses" => "controladorCentroMedico@menuAdministrador"]);
-//Route::get('medico/medicoNuevo', ["as" => "admin", "uses" => "controladorCentroMedico@medico"]);
 Auth::routes();
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');

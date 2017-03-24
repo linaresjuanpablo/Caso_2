@@ -28,7 +28,7 @@ class LoginController extends Controller
      * @var string
      */
   //
-    protected $redirectTo = '/home';
+    //protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -40,19 +40,10 @@ class LoginController extends Controller
         $this->middleware('guest', ['except' => 'logout']);
     }
 
-    protected function redirectTo()
+  protected function redirectTo()
     {
-       // echo "hola";
-    return 'users/userManager';
 
-    /*   $user = Auth::user();
-    if($user->tipo_usuario=='ADMINISTRADOR')
-      return 'users/home';
-    else
-        return 'paciente/pacientes';
-         //return redirect()->route('admin');
-         */
-  }
+    }
 
   protected function logout(Request $request){
     $this->guard()->logout();
