@@ -22,7 +22,7 @@
         <br>
         <img src={{ asset('images/paciente.jpg') }}  class="img-responsive" alt="Responsive image">
     </section>
-    <section class="col-md-9" style="font-size:20px;text-align:left;overflow:scroll;height:380px" >
+    <section class="col-md-9" style="font-size:12px;text-align:left;overflow:scroll;height:380px" >
     <div class="table-responsive">
         <br>
         <table class="table table-bordered  table-fixed">

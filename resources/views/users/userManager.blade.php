@@ -33,7 +33,8 @@
              <td><a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary">Editar datos</a></td>
                <td>{!! Form::open([
                 'method' => 'DELETE',
-               'route' => ['users.destroy', $user->id]
+                'route' => ['users.destroy', $user->id],
+                'onsubmit' => 'return confirm("Está seguro de eliminar el registro?")',
                ]) !!}
                {!! Form::submit('Eliminar usuario', ['class' => 'btn btn-danger']) !!}
                {!! Form::close() !!}

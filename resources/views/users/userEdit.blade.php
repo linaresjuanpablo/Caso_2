@@ -37,10 +37,13 @@
          {!! Form::label('apellidos', 'Apellidos', ['class' => 'control-label']) !!}
          {!! Form::text('apellidos', null, ['class' => 'form-control']) !!}
      </div>
+
      <div class="form-group">
-         {!! Form::label('tipo_usuario', 'Tipo usuario', ['class' => 'control-label']) !!}
-         {!! Form::text('tipo_usuario', null, ['class' => 'form-control']) !!}
-     </div>
+     {!! Form::label('lbltipousuario', 'Tipo usuario:', ['class' => 'col-lg-3 control-label']) !!}
+
+                                    {!! Form::select('tipo_usuario', array('' => 'Seleccione...', 'ADMINISTRADOR' => 'ADMINISTRADOR', 'ASISTENTE' => 'ASISTENTE'), $data->tipo_usuario, [ 'class' =>  'form-control',]) !!}
+                                </div>
+
      <div class="form-group">
          {!! Form::label('email', 'Email', ['class' => 'control-label']) !!}
          {!! Form::text('email', null, ['class' => 'form-control']) !!}
