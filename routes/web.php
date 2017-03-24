@@ -23,7 +23,7 @@ Route::group(['middleware' => 'auth'], function() {
        Route::resource('patients', 'PatientController');
        //Medicos
        Route::get('doctors/doctorManager', ["as" => "doctorAdmin", "uses" => "DoctorController@adminDoctor"]);
-       Route::resource('doctors', 'DoctortController');
+       Route::resource('doctors', 'DoctorController');
        //Citas
        Route::get('appointments/appointmentManager', ["as" => "appointmentAdmin", "uses" => "AppointmentController@adminAppointment"]);
        Route::resource('appointments', 'AppointmentController');
