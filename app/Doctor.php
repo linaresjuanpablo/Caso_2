@@ -10,5 +10,4 @@
         protected $fillable = [
              'documento','tipo_documento','nombres','apellidos', 'especialidad', 'email', 'telefono',
          ];
-        }
     }
