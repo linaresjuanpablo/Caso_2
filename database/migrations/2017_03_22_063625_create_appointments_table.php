@@ -17,17 +17,17 @@ class CreateAppointmentsTable extends Migration
             $table->increments('id');
             $table->date('fecha');
             $table->time('hora');
-            $table->integer('paciente_id')->unsigned();
-            $table->integer('medico_id')->unsigned();
+            $table->integer('patient_id')->unsigned();
+            $table->integer('doctor_id')->unsigned();
             $table->integer('valor');
             $table->string('estado',20);
             $table->timestamps();
-            $table->foreign('paciente_id')->references('id')->on('patiens')
+            $table->foreign('patient_id')->references('id')->on('patients')
              ->onUpdate('cascade')
              ->onDelete('cascade');
 
             //FK
-             $table->foreign('medico_id')->references('id')->on('doctors')
+             $table->foreign('doctor_id')->references('id')->on('doctors')
              ->onUpdate('cascade')
              ->onDelete('cascade');
 

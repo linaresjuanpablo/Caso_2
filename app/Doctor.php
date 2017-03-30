@@ -10,4 +10,14 @@
         protected $fillable = [
              'documento','tipo_documento','nombres','apellidos', 'especialidad', 'email', 'telefono',
          ];
+
+        public function appointments()
+        {    return $this->hasMany('App\Appointment');
+        }
+
+        public function getNumAppointmentsAttribute()
+        {
+            return count($this->appointments);
+        }
+
     }

@@ -41,15 +41,15 @@
             </div>
         </div>
         <div class="form-group">
-            {!! Form::label('paciente_id', 'Paciente:', ['class' => 'col-lg-3 control-label']) !!}
+            {!! Form::label('patient_id', 'Paciente:', ['class' => 'col-lg-3 control-label']) !!}
             <div class="col-lg-9">
-                {!! Form::select('paciente_id', $patient, null, [ 'class' =>  'form-control',]) !!}
+                {!! Form::select('patient_id', $patient, null, [ 'class' =>  'form-control',]) !!}
             </div>
         </div>
         <div class="form-group">
-            {!! Form::label('medico_id', 'Medico:', ['class' => 'col-lg-3 control-label']) !!}
+            {!! Form::label('doctor_id', 'Medico:', ['class' => 'col-lg-3 control-label']) !!}
             <div class="col-lg-9">
-                {!! Form::select('medico_id', $doctor, null, [ 'class' =>  'form-control',]) !!}
+                {!! Form::select('doctor_id', $doctor, null, [ 'class' =>  'form-control',]) !!}
             </div>
         </div>
         <div class="form-group">

@@ -49,12 +49,53 @@
                        @if (Auth::check())
                           <li><a href="{{ route('userHome') }}">Inicio</a></li>
                         @if(Auth::user()->tipo_usuario=='ADMINISTRADOR')
-                          <li><a href="{{ route('userAdmin') }}">Administrar Usuarios</a></li>
-                        @endif
-                         <li><a href="{{ route('patientAdmin') }}">Pacientes</a></li>
-                          <li><a href="{{ route('doctorAdmin') }}">Médicos</a></li>
-                          <li><a href="{{ route('appointmentAdmin') }}">Citas</a></li>
-                          <li><a href="{{ route('login') }}">Reportes</a></li>
+                           <li class="dropdown">
+                               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Administrar usuarios<span class="caret"></span> </a>
+                           <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ route('userAdmin') }}">Listado de usuarios</a></li>
+                            <li><a href="{{ route('users.create') }}">Agregar usuario</a></li>
+                           </ul>
+                           </li>
+                         @endif
+
+                           <li class="dropdown">
+                               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pacientes<span class="caret"></span> </a>
+                           <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ route('patientAdmin') }}">Listado de pacientes</a></li>
+                            <li><a href="{{ route('patients.create') }}">Agregar pacientes</a></li>
+                           </ul>
+
+                          </li>
+
+                          <li class="dropdown">
+                               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Médicos<span class="caret"></span> </a>
+                           <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ route('doctorAdmin') }}">Listado de médicos</a></li>
+                            <li><a href="{{ route('doctors.create') }}">Agregar médico</a></li>
+                           </ul>
+
+                          </li>
+
+                          <li class="dropdown">
+                               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Citas<span class="caret"></span> </a>
+                           <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ route('appointmentAdmin') }}">Listado de citas</a></li>
+                            <li><a href="{{ route('appointments.create') }}">Agregar nueva cita</a></li>
+                           </ul>
+
+                          </li>
+
+                          <li class="dropdown">
+                               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Reportes<span class="caret"></span> </a>
+                           <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ route('report1') }}">Reporte medicos cita </a></li>
+
+                           </ul>
+
+                          </li>
+
+
+
                     </ul>
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
@@ -85,11 +126,7 @@
     <section>
             <div class="container-fluid">
             <!-- Espacio para los mensajes flash enviados entre solicitudes -->
-                    @if(Session::has('flash_message'))
-                    <article class="alert alert-success">
-                        {{ Session::get('flash_message') }}
-                    </article>
-                    @endif
+
              @yield('contenido')
             </div>
             </section>
@@ -103,8 +140,9 @@
            </section>
             </div>
     </footer>
-    <script src="js/jquery.js"></script>
+
     <script src="js/bootstrap.min.js"></script>
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="js/jquery.js"></script>
 </body>
 </html>

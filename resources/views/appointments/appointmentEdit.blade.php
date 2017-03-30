@@ -11,7 +11,7 @@
     <section class="row" >
         <section class="col-md-4">
             <br><br>
-            <img src={{ asset('images/paciente.jpg') }}  class="img-responsive" alt="Responsive image">
+             <img src={{ asset('images/citas.jpg') }}  class="img-responsive" alt="Responsive image">
         </section>
         <section class="col-md-8">
             @if($errors->any())
@@ -39,15 +39,15 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                {!! Form::label('paciente_id', 'Paciente:', ['class' => 'col-lg-3 control-label']) !!}
+                                {!! Form::label('patient_id', 'Paciente:', ['class' => 'col-lg-3 control-label']) !!}
                                 <div class="col-lg-9">
-                                    {!! Form::select('paciente_id', $patient, $data->paciente_id, [ 'class' =>  'form-control',]) !!}
+                                    {!! Form::select('patient_id', $patient, $data->paciente_id, [ 'class' =>  'form-control',]) !!}
                                 </div>
                             </div>
                             <div class="form-group">
                                 {!! Form::label('medico_id', 'Medico:', ['class' => 'col-lg-3 control-label']) !!}
                                 <div class="col-lg-9">
-                                    {!! Form::select('medico_id', $doctor, $data->medico_id, [ 'class' =>  'form-control',]) !!}
+                                    {!! Form::select('doctor_id', $doctor, $data->medico_id, [ 'class' =>  'form-control',]) !!}
                                 </div>
                             </div>
                             <div class="form-group">

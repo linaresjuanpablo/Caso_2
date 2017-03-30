@@ -17,7 +17,8 @@
 
 Route::get('usuarios', ["as" => "userH", "uses" => "UserController@adminUser"]);
 Route::group(['middleware' => 'auth'], function() {
-       //Usuarios
+
+    //Usuarios
        Route::get('users/create', ["as" => "userCreate", "uses" => "UserController@create"]);
        Route::get('users/userManager', ["as" => "userAdmin", "uses" => "UserController@adminUser"]);
        //
@@ -35,8 +36,16 @@ Route::group(['middleware' => 'auth'], function() {
        //Citas
        Route::get('appointments/appointmentManager', ["as" => "appointmentAdmin", "uses" => "AppointmentController@adminAppointment"]);
        Route::resource('appointments', 'AppointmentController');
-
+       Route::get('reports', ["as" => "report1", "uses" => "ReportController@reports"]);
+       Route::post('/reports/result', ["as" => "repRes", "uses" => "ReportController@repCitasFecha"]);
      });
+
+
+
+
+
+
+
 
 Auth::routes();
 Route::get('/', 'HomeController@index');

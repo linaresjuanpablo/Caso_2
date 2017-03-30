@@ -12,6 +12,14 @@ class Appointment extends Model
      * @var array
      */
     protected $fillable = [
-        'fecha','hora','paciente_id','medico_id', 'valor', 'estado',
+        'fecha','hora','patient_id','doctor_id', 'valor', 'estado',
     ];
+
+     public function Doctor()
+        {     return $this->belongsTo('App\Doctor');
+        }
+
+    public function Patient()
+        {     return $this->belongsTo('App\Patient');
+        }
 }

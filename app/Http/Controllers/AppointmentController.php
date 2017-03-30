@@ -45,8 +45,8 @@ class AppointmentController extends Controller
        $this->validate($request, [
        'fecha' => 'required | date_format:Y-m-d',
        'hora' => 'required | date_format:H:i',
-       'paciente_id' => 'required',
-       'medico_id' => 'required',
+       'patient_id' => 'required',
+       'doctor_id' => 'required',
        'valor' => 'required | string',
        'estado' => 'required',
        ]);
@@ -95,8 +95,8 @@ class AppointmentController extends Controller
             $this->validate($request, [
                'fecha' => 'required | date_format:Y-m-d',
                'hora' => 'required | date_format:H:i',
-               'paciente_id' => 'required',
-               'medico_id' => 'required',
+               'patient_id' => 'required',
+               'doctor_id' => 'required',
                'valor' => 'required | string',
                'estado' => 'required',
                ]);
@@ -129,5 +129,13 @@ class AppointmentController extends Controller
             Session::flash('flash_message', "La cita ($id) no ha sido encontrada para eliminarla!");
             return redirect()->back();
         }
+    }
+
+    public function reporteCitas(Request $request)
+    {
+        $this->validate($request, [
+       'fechaInic' => 'required | date_format:Y-m-d',
+
+       ]);
     }
 }
