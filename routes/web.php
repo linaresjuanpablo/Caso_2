@@ -34,7 +34,8 @@ Route::group(['middleware' => 'auth'], function() {
        Route::get('doctors/doctorManager', ["as" => "doctorAdmin", "uses" => "DoctorController@adminDoctor"]);
        Route::resource('doctors', 'DoctorController');
        //Citas
-       Route::get('appointments/appointmentManager', ["as" => "appointmentAdmin", "uses" => "AppointmentController@adminAppointment"]);
+
+        Route::get('appointments/appointmentManager', ["as" => "appointmentAdmin", "uses" => "AppointmentController@adminAppointment"]);
        Route::resource('appointments', 'AppointmentController');
        Route::get('reports', ["as" => "report1", "uses" => "ReportController@reports"]);
        Route::post('/reports/result', ["as" => "repRes", "uses" => "ReportController@repCitasFecha"]);
