@@ -22,7 +22,7 @@
         <br>
         <img src={{ asset('images/citas.jpg') }}  class="img-responsive" alt="Responsive image">
     </section>
-    <section class="col-md-9" style="font-size:20px;text-align:left;overflow:scroll;height:380px" >
+    <section class="col-md-10" style="font-size:20px;text-align:left;overflow:scroll;height:380px" >
      @if(Session::has('flash_message'))
                     <article class="alert alert-success">
                         {{ Session::get('flash_message') }}
@@ -45,8 +45,8 @@
             <tr>
                 <td> {{ $appointment->fecha }} </td>
                 <td> {{ $appointment->hora }} </td>
-                <td> {{ $appointment->patient_id }} </td>
-                <td> {{ $appointment->doctor_id }} </td>
+                <td> {{ '(' . $appointment->patient_id . ') ' .$appointment->Patient->nombres .' ' .$appointment->Patient->apellidos }} </td>
+                <td> {{ '(' .$appointment->doctor_id .') ' .$appointment->Doctor->nombres .' ' .$appointment->Doctor->apellidos }} </td>
                 <td> {{ $appointment->valor }} </td>
                 <td> {{ $appointment->estado }} </td>
                 <td><a href="{{ route('appointments.edit', $appointment->id) }}" class="btn btn-primary">Editar datos</a></td>

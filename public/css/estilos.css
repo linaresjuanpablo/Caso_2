@@ -19,6 +19,7 @@ citas {
 .table-fixed tbody {
  overflow-y: auto;
  height: 300px;
+ font-size:11px;
 
 }
 
@@ -36,4 +37,8 @@ footer{
     width: 100%;
     height: 65px;
     font-weight: bold;
+}
+
+strong{
+    font-size:18px;
 }

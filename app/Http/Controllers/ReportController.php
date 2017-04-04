@@ -24,10 +24,19 @@ class ReportController extends Controller
        'fecha_final' => 'required | date',
        ]);
       Session::flash('flash_message', 'User successfully edited!');
-     $list=Doctor::whereHas('appointments',function($q) use ($request)
+     /*$list=Doctor::where('appointments',function($q) use ($request)
          {
-            $q->whereBetween('fecha', [$request->fecha_inicial,$request->fecha_final]);
-                            })->get();
+            $q->whereBetween('fecha', [$request->fecha_inicial,$request->fecha_final])
+               ->where('estado','=','Realizada');
+         })->get();*/
+
+
+
+        $list=Doctor::with(['appointments'=>function($q) use ($request)
+         {
+            $q->whereBetween('fecha', [$request->fecha_inicial,$request->fecha_final])
+               ->where('estado','=','Realizada');
+         }])->get();
 
     return view('reports/report1',['list' => $list,'old' => $request]);
     }

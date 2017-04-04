@@ -24,7 +24,7 @@ class DoctorController extends Controller
     {
        $input = $request->all();
        $this->validate($request, [
-       'documento' => 'required | string | max:15',
+       'documento' => 'required | string | max:15 | unique:doctors,documento',
        'tipo_documento' => 'required | string | max:2',
        'nombres' => 'required | string | max:100',
        'apellidos' => 'required | string | max:100',
@@ -64,7 +64,7 @@ class DoctorController extends Controller
         {
             $doctor = Doctor::findOrFail($id);
             $this->validate($request, [
-               'documento' => 'required | string | max:15',
+               'documento' => 'required | string | max:15 | unique:doctors,documento',
                'tipo_documento' => 'required | string | max:2',
                'nombres' => 'required | string | max:100',
                'apellidos' => 'required | string | max:100',

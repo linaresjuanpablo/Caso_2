@@ -62,6 +62,7 @@
      @foreach($list as $doctor)
      <strong>
      <p> {{ "Especialista:" . "($doctor->id) "  .$doctor->nombres . ' ' .$doctor->apellidos ." --- Cantidad de citas atendidas $doctor->num_appointments" }}</p></strong>
+      @if($doctor->num_appointments >0)
       <div class="table-responsive">
        <table class="table">
         <tr>
@@ -75,11 +76,13 @@
          <td> {{ $appo->id}} </td>
          <td> {{ $appo->fecha}} </td>
          <td> {{ $appo->hora}} </td>
-         <td> {{ $appo->patient_id}} </td>
+         <td> {{ '(' .$appo->patient_id .') ' .$appo->Patient->nombres .' ' .$appo->Patient->apellidos }} </td>
          </tr>
      @endforeach
+
   </table>
 </div>
+     @endif
 
 
      @endforeach

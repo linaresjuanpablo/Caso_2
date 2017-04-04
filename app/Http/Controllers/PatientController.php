@@ -23,7 +23,7 @@ class PatientController extends Controller
     {
        $input = $request->all();
        $this->validate($request, [
-       'documento' => 'required | string | max:15',
+       'documento' => 'required | string | max:15 | unique:patients,documento',
        'tipo_documento' => 'required | string | max:2',
        'nombres' => 'required | string | max:100',
        'apellidos' => 'required | string | max:100',
@@ -66,7 +66,7 @@ class PatientController extends Controller
         {
             $patient = Patient::findOrFail($id);
             $this->validate($request, [
-               'documento' => 'required | string | max:15',
+               'documento' => 'required | string | max:15 | unique:patients,documento',
                'tipo_documento' => 'required | string | max:2',
                'nombres' => 'required | string | max:100',
                'apellidos' => 'required | string | max:100',

@@ -15,10 +15,13 @@
 //Rutas users
 
 
-Route::get('usuarios', ["as" => "userH", "uses" => "UserController@adminUser"]);
-Route::group(['middleware' => 'auth'], function() {
 
-    //Usuarios
+Route::get('usuarios', ["as" => "userH", "uses" => "UserController@adminUser"]);
+
+
+
+Route::group(['middleware' => 'auth'], function() {
+     //Usuarios
        Route::get('users/create', ["as" => "userCreate", "uses" => "UserController@create"]);
        Route::get('users/userManager', ["as" => "userAdmin", "uses" => "UserController@adminUser"]);
        //
