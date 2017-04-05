@@ -117,9 +117,10 @@ class AppointmentController extends Controller
 
 
         if ($validator->fails()) {
-            return redirect('appointments\create')
-                        ->withErrors($validator)
-                        ->withInput();
+
+            return redirect()->to($this->getRedirectUrl())
+                    ->withInput($request->input())
+                    ->withErrors($validator);
         }
 
         Appointment::create($input);
@@ -193,9 +194,13 @@ class AppointmentController extends Controller
 
          if ($validator->fails())
          {
-           return redirect('appointments\create')
-             ->withErrors($validator)
-             ->withInput();
+
+
+              return redirect()->to($this->getRedirectUrl())
+                    ->withInput($request->input())
+                    ->withErrors($validator);
+
+
           }
 
          $input = $request->all();

@@ -35,7 +35,7 @@
                             <div class="form-group">
                                 {!! Form::label('lblHora', 'Hora:', ['class' => 'col-lg-3 control-label']) !!}
                                 <div class="col-lg-9">
-                                    {!! Form::time('hora', $data->hora, ['class' => 'form-control'], 'h:i') !!}
+                                    {!! Form::time('hora', $data->hora, ['class' => 'form-control'], 'H:i') !!}
                                 </div>
                             </div>
                             <div class="form-group">

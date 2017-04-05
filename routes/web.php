@@ -39,6 +39,7 @@ Route::group(['middleware' => 'auth'], function() {
        //Citas
 
         Route::get('appointments/appointmentManager', ["as" => "appointmentAdmin", "uses" => "AppointmentController@adminAppointment"]);
+        Route::get('appointments/appointmentEdit', ["as" => "appointmentEdit", "uses" => "AppointmentController@adminAppointment"]);
        Route::resource('appointments', 'AppointmentController');
        Route::get('reports', ["as" => "report1", "uses" => "ReportController@reports"]);
        Route::post('/reports/result', ["as" => "repRes", "uses" => "ReportController@repCitasFecha"]);
