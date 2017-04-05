@@ -29,7 +29,7 @@ class DoctorController extends Controller
        'nombres' => 'required | string | max:100',
        'apellidos' => 'required | string | max:100',
        'especialidad' => 'required | string | max:50',
-       'email' => 'required | email | string | max:50 | unique:appointments,email',
+       'email' => 'required | email | string | max:50 | unique:Doctor,email',
        'telefono' => 'required | string | max:50',
 
        ]);
