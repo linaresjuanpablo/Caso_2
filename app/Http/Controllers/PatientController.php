@@ -66,7 +66,7 @@ class PatientController extends Controller
         {
             $patient = Patient::findOrFail($id);
             $this->validate($request, [
-               'documento' => 'required | string | max:15 | unique:patients,documento',
+               'documento' => 'required | string | max:15',
                'tipo_documento' => 'required | string | max:2',
                'nombres' => 'required | string | max:100',
                'apellidos' => 'required | string | max:100',

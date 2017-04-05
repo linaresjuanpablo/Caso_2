@@ -29,7 +29,7 @@ class DoctorController extends Controller
        'nombres' => 'required | string | max:100',
        'apellidos' => 'required | string | max:100',
        'especialidad' => 'required | string | max:50',
-       'email' => 'required | string | max:50',
+       'email' => 'required | email | string | max:50 | unique:appointments,email',
        'telefono' => 'required | string | max:50',
 
        ]);
@@ -64,12 +64,12 @@ class DoctorController extends Controller
         {
             $doctor = Doctor::findOrFail($id);
             $this->validate($request, [
-               'documento' => 'required | string | max:15 | unique:doctors,documento',
+               'documento' => 'required | string | max:15',
                'tipo_documento' => 'required | string | max:2',
                'nombres' => 'required | string | max:100',
                'apellidos' => 'required | string | max:100',
                'especialidad' => 'required | string | max:50',
-               'email' => 'required | string | max:50',
+               'email' => 'required | email | string | max:50',
                'telefono' => 'required | string | max:50',
                ]);
             $input = $request->all();

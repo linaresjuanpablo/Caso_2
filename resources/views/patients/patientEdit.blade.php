@@ -33,7 +33,7 @@
                         </div>
                         <div class="form-group">
                             {!! Form::label('lblTipoDocumento', 'Tipo de Documento:', ['class' => 'control-label']) !!}
-                            {!! Form::text('tipo_documento', null, ['class' => 'form-control']) !!}
+                           {!! Form::select('tipo_documento', ['CC' => 'Cédula ciudadanía', 'TI' => 'Tarjeta de identidad', 'RC' => 'Registro civil', 'CE' => 'Cédula de extranjería'], null, ['class' => 'form-control','placeholder' => 'seleccione un tipo de  documento...']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('lblNombres', 'Nombres:', ['class' => 'control-label']) !!}

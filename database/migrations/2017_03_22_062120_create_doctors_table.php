@@ -19,8 +19,8 @@ class CreateDoctorsTable extends Migration
             $table->string('tipo_documento', 2);
             $table->string('nombres', 100);
             $table->string('apellidos', 100);
-            $table->string('especialidad', 1);
-            $table->string('email', 100);
+            $table->string('especialidad', 100);
+            $table->string('email', 100)->unique();
             $table->string('telefono', 15);
             $table->timestamps();
 

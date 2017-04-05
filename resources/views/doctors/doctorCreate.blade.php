@@ -37,7 +37,7 @@
         <div class="form-group">
             {!! Form::label('lblTipoDocumento', 'Tipo de Documento:', ['class' => 'col-lg-3 control-label']) !!}
             <div class="col-lg-9">
-                {!! Form::text('tipo_documento', $value = null, ['class' => 'form-control', 'placeholder' => 'Tipo de Documento']) !!}
+                {!! Form::select('tipo_documento', ['CC' => 'Cédula ciudadanía', 'TI' => 'Tarjeta de identidad', 'RC' => 'Registro civil', 'CE' => 'Cédula de extranjería'], null, ['class' => 'form-control','placeholder' => 'seleccione un tipo de  documento...']) !!}
             </div>
         </div>
         <div class="form-group">
