@@ -56,8 +56,8 @@ class AppointmentController extends Controller
           {
             $buscarCita=Appointment::where('doctor_id','=',$doctor)
              ->where('fecha','=',$fecha)
-             ->where('id','<>',$fecha)
-             ->where('hora','=',$hora)->first();
+             ->where('hora','=',$hora)
+             ->where('id','<>',$cita)->first();
            }
 
         }
