@@ -48,7 +48,7 @@ class UserController extends Controller
 
        $input = $request->all();
        User::create($input);
-       Session::flash('flash_message', 'El usario ha sido agregado exitosamente!');
+       Session::flash('flash_message', 'El usuario ha sido agregado exitosamente!');
 
         $users = User::all();
         return view('users/userManager',['list' => $users]);
@@ -96,7 +96,7 @@ class UserController extends Controller
 
   catch(ModelNotFoundException $e)
    {
-     Session::flash('flash_message', "Elusuario con id ($id) no puedo ser encontrado para la actualización de datos!");
+     Session::flash('flash_message', "El usuario con id ($id) no puedo ser encontrado para la actualización de datos!");
      echo "error";
      return redirect()->back();
     }

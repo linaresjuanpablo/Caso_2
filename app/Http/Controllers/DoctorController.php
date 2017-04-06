@@ -29,7 +29,7 @@ class DoctorController extends Controller
        'nombres' => 'required | string | max:100',
        'apellidos' => 'required | string | max:100',
        'especialidad' => 'required | string | max:50',
-       'email' => 'required | email | string | max:50 | unique:Doctor,email',
+       'email' => 'required | email | string | max:100 | unique:doctors,email',
        'telefono' => 'required | string | max:50',
 
        ]);
@@ -69,7 +69,7 @@ class DoctorController extends Controller
                'nombres' => 'required | string | max:100',
                'apellidos' => 'required | string | max:100',
                'especialidad' => 'required | string | max:50',
-               'email' => 'required | email | string | max:50',
+               'email' => 'required | email | string | max:100',
                'telefono' => 'required | string | max:50',
                ]);
             $input = $request->all();

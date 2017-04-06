@@ -23,7 +23,6 @@ class ReportController extends Controller
        'fecha_inicial' => 'required | date',
        'fecha_final' => 'required | date',
        ]);
-      Session::flash('flash_message', 'User successfully edited!');
      /*$list=Doctor::where('appointments',function($q) use ($request)
          {
             $q->whereBetween('fecha', [$request->fecha_inicial,$request->fecha_final])
