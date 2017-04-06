@@ -42,7 +42,7 @@ class AppointmentController extends Controller
         return view('appointments.appointmentCreate', ['patient' => $patientsArray, 'doctor' => $doctorsArray]);
     }
 
-    function buscarCitaDoctor($accion,$doctor,$fecha,$hora)
+    function buscarCitaDoctor($accion,$cita,$doctor,$fecha,$hora)
     {
        if($accion == 'insertar')
        {
@@ -54,8 +54,9 @@ class AppointmentController extends Controller
        {
          if($accion == 'actualizar')
           {
-            $buscarCita=Appointment::where('doctor_id','<>',$doctor)
+            $buscarCita=Appointment::where('doctor_id','=',$doctor)
              ->where('fecha','=',$fecha)
+             ->where('id','<>',$fecha)
              ->where('hora','=',$hora)->first();
            }
 
@@ -65,20 +66,26 @@ class AppointmentController extends Controller
 
     }
 
-    function buscarCitaPaciente($accion,$patient,$fecha,$hora)
+    function buscarCitaPaciente($accion,$cita,$patient,$fecha,$hora)
     {
-       if($accion =='insertar')
+
+
+
+        if($accion =='insertar')
        {
-          $buscarCita=Appointment::where('patient_id','=',$patient)
-           ->where('fecha','=',$fecha)
-           ->where('hora','=',$hora)->first();
-       }
+          $buscarCita=Appointment::where('patient_id','=',$patient)->
+                                   where('fecha','=',$fecha)->
+                                   where('hora','=',$hora)->
+              first();
+        }
        else
        {
-         if($accion =='insertar')
+
+         if($accion =='actualizar')
          {
-          $buscarCita=Appointment::where('patient_id','<>',$patient)
+          $buscarCita=Appointment::where('patient_id','=',$patient)
            ->where('fecha','=',$fecha)
+           ->where('id','<>',$cita)
            ->where('hora','=',$hora)->first();
          }
 
@@ -101,33 +108,38 @@ class AppointmentController extends Controller
         ]);
 
 
-        if (!$validator->fails()) {
+
+ if (!$validator->fails()) {
             $validator->after(function ($validator) use ($request){
 
-           if ($this->buscarCitaDoctor('insertar',$request->doctor_id,$request->fecha,$request->hora)>0) {
-             $validator->errors()->add('', 'Ya existe una cita asignada en fecha y hora con el médico seleccionado!!!');
+           if ($this->buscarCitaDoctor('insertar','',$request->doctor_id,$request->fecha,$request->hora)>0)
+            {
+             $validator->errors()->add('','Ya existe una cita asignada en fecha y hora con el médico seleccionado!!!' . 'paciente:' .$request->patient_id);
             }
 
-            if ($this->buscarCitaPaciente('insertar',$request->patient_id,$request->fecha,$request->hora)>0) {
-             $validator->errors()->add('', 'Ya existe una cita asignada en fecha y hora para el paciente dado!!!');
+             if ($this->buscarCitaPaciente('insertar','',$request->patient_id,$request->fecha,$request->hora) > 0)
+             {
+               $validator->errors()->add('', 'Ya existe una cita asignada en fecha y hora para el paciente dado!!!');
             }
+
+
        });
 
     }
 
+    if ($validator->fails())
+    {
 
-        if ($validator->fails()) {
-
-            return redirect()->to($this->getRedirectUrl())
+            return redirect()->back()
                     ->withInput($request->input())
                     ->withErrors($validator);
-        }
+    }
 
-        Appointment::create($input);
-        $appointments = Appointment::all();
-         Session::flash('flash_message', 'Cita registrada correctamente!');
 
-         return view('appointments/appointmentManager',['list' => $appointments]);
+     Appointment::create($input);
+     $appointments = Appointment::all();
+     Session::flash('flash_message', 'Cita registrada correctamente!');
+     return view('appointments/appointmentManager',['list' => $appointments]);
    }
 
     public function show(Request $request, $id)
@@ -173,22 +185,23 @@ class AppointmentController extends Controller
              'hora' => 'required | date_format:H:i',
              'patient_id' => 'required',
              'doctor_id' => 'required',
-             'valor' => 'required | string',
-             'estado' => 'required',
+             'valor' => 'required | numeric',
+             'estado' => 'required | string',
             ]);
 
 
            if (!$validator->fails()) {
-              $validator->after(function ($validator) use ($request){
-              if ($this->buscarCitaDoctor('insertar',$request->id,$request->doctor_id,$request->fecha,$request->hora)>0) {
+              $validator->after(function ($validator) use ($request,$id){
+              if ($this->buscarCitaDoctor('actualizar',$id,$request->id,$request->doctor_id,$request->fecha,$request->hora)>0)
+               {
                   $validator->errors()->add('', 'Ya existe una cita asignada en fecha y hora con el médico seleccionado!!!');
                 }
 
-              if ($this->buscarCitaPaciente('insertar',$request->id,$request->patient_id,$request->fecha,$request->hora)>0) {
-                $validator->errors()->add('', 'Ya existe una cita asignada en fecha y hora para el paciente dado!!!');
+              if ($this->buscarCitaPaciente('actualizar',$id,$request->id,$request->patient_id,$request->fecha,$request->hora)>0)
+                {
+                 $validator->errors()->add('', 'Ya existe una cita asignada en fecha y hora para el paciente dado!!!');
                 }
               });
-
              }
 
 
@@ -196,7 +209,7 @@ class AppointmentController extends Controller
          {
 
 
-              return redirect()->to($this->getRedirectUrl())
+              return redirect()->back()
                     ->withInput($request->input())
                     ->withErrors($validator);
 
