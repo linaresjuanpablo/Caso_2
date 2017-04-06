@@ -182,7 +182,7 @@ class AppointmentController extends Controller
             $appointment = Appointment::findOrFail($id);
             $validator = Validator::make($request->all(), [
              'fecha' => 'required | date_format:Y-m-d',
-             'hora' => 'required | date_format:H:i',
+             'hora' => 'required',
              'patient_id' => 'required',
              'doctor_id' => 'required',
              'valor' => 'required | numeric',
@@ -192,12 +192,12 @@ class AppointmentController extends Controller
 
            if (!$validator->fails()) {
               $validator->after(function ($validator) use ($request,$id){
-              if ($this->buscarCitaDoctor('actualizar',$id,$request->id,$request->doctor_id,$request->fecha,$request->hora)>0)
+              if ($this->buscarCitaDoctor('actualizar',$id,$request->doctor_id,$request->fecha,$request->hora)>0)
                {
                   $validator->errors()->add('', 'Ya existe una cita asignada en fecha y hora con el médico seleccionado!!!');
                 }
 
-              if ($this->buscarCitaPaciente('actualizar',$id,$request->id,$request->patient_id,$request->fecha,$request->hora)>0)
+              if ($this->buscarCitaPaciente('actualizar',$id,$request->patient_id,$request->fecha,$request->hora)>0)
                 {
                  $validator->errors()->add('', 'Ya existe una cita asignada en fecha y hora para el paciente dado!!!');
                 }

@@ -26,8 +26,7 @@ class UserController extends Controller
 
     public function index(Request $request)
     {
-     //$users = User::all();
-     //return view('users/UserManager', ['list' => $users]);
+
      return view('users.userHome');
     }
 
@@ -49,7 +48,7 @@ class UserController extends Controller
 
        $input = $request->all();
        User::create($input);
-       Session::flash('flash_message', 'User successfully added!');
+       Session::flash('flash_message', 'El usario ha sido agregado exitosamente!');
 
         $users = User::all();
         return view('users/userManager',['list' => $users]);
@@ -88,7 +87,7 @@ class UserController extends Controller
        ]);
       $input = $request->all();
       $user->fill($input)->save();
-      Session::flash('flash_message', 'User successfully edited!');
+      Session::flash('flash_message', 'La edición de datos fue exitosa!');
       $users = User::all();
       return view('users/userManager',['list' => $users]);
 
@@ -97,8 +96,7 @@ class UserController extends Controller
 
   catch(ModelNotFoundException $e)
    {
-     Session::flash('flash_message', "The User ($id) could not be found to be
-     edited!");
+     Session::flash('flash_message', "Elusuario con id ($id) no puedo ser encontrado para la actualización de datos!");
      echo "error";
      return redirect()->back();
     }
