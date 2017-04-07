@@ -67,8 +67,7 @@ class UserController extends Controller
 
     catch(ModelNotFoundException $e)
     {
-       Session::flash('flash_message', "The User ($id) could not be found to be
-       edited!");
+       Session::flash('flash_message', "El Usuario ($id) no ha sido encontrado para editarlo!");
        return redirect()->back();
     }
    }
@@ -113,14 +112,13 @@ class UserController extends Controller
   {
     $user = User::findOrFail($id);
     $user->delete();
-    Session::flash('flash_message', 'User successfully deleted!');
+    Session::flash('flash_message', 'Usuario eliminado correctamente!');
     $users = User::all();
     return view('users/userManager',['list' => $users]);
   }
   catch(ModelNotFoundException $e)
    {
-    Session::flash('flash_message', "The User ($id) could not be found to be
-    deleted!");
+    Session::flash('flash_message', "El Usuario con ($id) no pudo ser encontrado para la eliminación de datos!");
     return redirect()->back();
    }
   }

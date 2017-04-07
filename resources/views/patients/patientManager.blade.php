@@ -23,9 +23,9 @@
         <img src={{ asset('images/paciente.jpg') }}  class="img-responsive" alt="Responsive image">
     </section>
     <section class="col-md-9" style="font-size:12px;text-align:left;overflow:scroll;height:380px" >
-     @if(Session::has('flash_message'))
+     @if(Session::has('flash_message1'))
                     <article class="alert alert-success">
-                        {{ Session::get('flash_message') }}
+                        {{ Session::get('flash_message1') }}
                     </article>
                     @endif
     <div class="table-responsive">

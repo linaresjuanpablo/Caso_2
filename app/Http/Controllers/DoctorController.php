@@ -34,7 +34,7 @@ class DoctorController extends Controller
 
        ]);
        Doctor::create($input);
-       Session::flash('flash_message', 'Paciente registrado correctamente!');
+       Session::flash('flash_message2', 'Médico registrado correctamente!');
        $doctors = Doctor::all();
        return view('doctors/doctorManager',['list' => $doctors]);
    }
@@ -53,7 +53,7 @@ class DoctorController extends Controller
         }
         catch(ModelNotFoundException $e)
         {
-            Session::flash('flash_message', "El Medico ($id) no ha sido encontrado para editarlo!");
+            Session::flash('flash_message2', "El Medico ($id) no ha sido encontrado para editarlo!");
             return redirect()->back();
         }
     }
@@ -74,13 +74,13 @@ class DoctorController extends Controller
                ]);
             $input = $request->all();
             $doctor->fill($input)->save();
-            Session::flash('flash_message', 'Medico editado correctamente!');
+            Session::flash('flash_message2', 'Medico editado correctamente!');
             $doctors = Doctor::all();
             return view('doctors/doctorManager',['list' => $doctors]);
         }
         catch(ModelNotFoundException $e)
         {
-            Session::flash('flash_message', "El MEdico ($id) no ha sido encontrado para editarlo!");
+            Session::flash('flash_message2', "El Médico ($id) no ha sido encontrado para editarlo!");
             echo "error";
             return redirect()->back();
         }
@@ -92,13 +92,13 @@ class DoctorController extends Controller
         {
             $doctor = Doctor::findOrFail($id);
             $doctor->delete();
-            Session::flash('flash_message', 'Medico eliminado correctamente!');
+            Session::flash('flash_message2', 'Médico eliminado correctamente!');
             $doctors = Doctor::all();
             return view('doctors/doctorManager',['list' => $doctors]);
         }
         catch(ModelNotFoundException $e)
         {
-            Session::flash('flash_message', "El Medico ($id) no ha sido encontrado para eliminarlo!");
+            Session::flash('flash_message2', "El Médico ($id) no ha sido encontrado para eliminarlo!");
             return redirect()->back();
         }
     }

@@ -36,7 +36,7 @@ class PatientController extends Controller
        'telefono_acudiente' => 'required | string | max:50',
        ]);
        Patient::create($input);
-       Session::flash('flash_message', 'Paciente registrado correctamente!');
+       Session::flash('flash_message1', 'Paciente registrado correctamente!');
        $patients = Patient::all();
        return view('patients/patientManager',['list' => $patients]);
    }
@@ -55,7 +55,7 @@ class PatientController extends Controller
         }
         catch(ModelNotFoundException $e)
         {
-            Session::flash('flash_message', "El Paciente ($id) no ha sido encontrado para editarlo!");
+            Session::flash('flash_message1', "El Paciente ($id) no ha sido encontrado para editarlo!");
             return redirect()->back();
         }
     }
@@ -80,13 +80,13 @@ class PatientController extends Controller
                ]);
             $input = $request->all();
             $patient->fill($input)->save();
-            Session::flash('flash_message', 'Paciente editado correctamente!');
+            Session::flash('flash_message1', 'Paciente editado correctamente!');
             $patients = Patient::all();
             return view('patients/patientManager',['list' => $patients]);
         }
         catch(ModelNotFoundException $e)
         {
-            Session::flash('flash_message', "El Paciente ($id) no ha sido encontrado para editarlo!");
+            Session::flash('flash_message1', "El Paciente ($id) no ha sido encontrado para editarlo!");
             echo "error";
             return redirect()->back();
         }
@@ -98,13 +98,13 @@ class PatientController extends Controller
         {
             $patient = Patient::findOrFail($id);
             $patient->delete();
-            Session::flash('flash_message', 'Paciente eliminado correctamente!');
+            Session::flash('flash_message1', 'Paciente eliminado correctamente!');
             $patients = Patient::all();
             return view('patients/patientManager',['list' => $patients]);
         }
         catch(ModelNotFoundException $e)
         {
-            Session::flash('flash_message', "El Paciente ($id) no ha sido encontrado para eliminarlo!");
+            Session::flash('flash_message1', "El Paciente ($id) no ha sido encontrado para eliminarlo!");
             return redirect()->back();
         }
     }

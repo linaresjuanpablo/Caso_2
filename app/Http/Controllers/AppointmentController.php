@@ -114,7 +114,7 @@ class AppointmentController extends Controller
 
            if ($this->buscarCitaDoctor('insertar','',$request->doctor_id,$request->fecha,$request->hora)>0)
             {
-             $validator->errors()->add('','Ya existe una cita asignada en fecha y hora con el médico seleccionado!!!' . 'paciente:' .$request->patient_id);
+             $validator->errors()->add('','Ya existe una cita asignada en fecha y hora con el médico seleccionado!!!' . ' Paciente Id:' .$request->patient_id);
             }
 
              if ($this->buscarCitaPaciente('insertar','',$request->patient_id,$request->fecha,$request->hora) > 0)
@@ -138,7 +138,7 @@ class AppointmentController extends Controller
 
      Appointment::create($input);
      $appointments = Appointment::all();
-     Session::flash('flash_message', 'Cita registrada correctamente!');
+     Session::flash('flash_message3', 'Cita registrada correctamente!');
      return view('appointments/appointmentManager',['list' => $appointments]);
    }
 
@@ -170,7 +170,7 @@ class AppointmentController extends Controller
         }
         catch(ModelNotFoundException $e)
         {
-            Session::flash('flash_message', "La cita ($id) no ha sido encontrado para editarla!");
+            Session::flash('flash_message3', "La cita ($id) no ha sido encontrada para editarla!");
             return redirect()->back();
         }
     }
@@ -218,13 +218,13 @@ class AppointmentController extends Controller
 
          $input = $request->all();
          $appointment->fill($input)->save();
-         Session::flash('flash_message', 'Cita editada correctamente!');
+         Session::flash('flash_message3', 'Cita editada correctamente!');
          $appointments = Appointment::all();
          return view('appointments/appointmentManager',['list' => $appointments]);
        }
       catch(ModelNotFoundException $e)
         {
-            Session::flash('flash_message', "La cita ($id) no ha sido encontrada para editarla!");
+            Session::flash('flash_message3', "La cita ($id) no ha sido encontrada para editarla!");
             echo "error";
             return redirect()->back();
         }
@@ -236,13 +236,13 @@ class AppointmentController extends Controller
         {
             $appointments = Appointment::findOrFail($id);
             $appointments->delete();
-            Session::flash('flash_message', 'Cita eliminada correctamente!');
+            Session::flash('flash_message3', 'Cita eliminada correctamente!');
             $appointments = Appointment::all();
             return view('appointments/appointmentManager',['list' => $appointments]);
         }
         catch(ModelNotFoundException $e)
         {
-            Session::flash('flash_message', "La cita ($id) no ha sido encontrada para eliminarla!");
+            Session::flash('flash_message3', "La cita ($id) no ha sido encontrada para eliminarla!");
             return redirect()->back();
         }
     }

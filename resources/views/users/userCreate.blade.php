@@ -25,7 +25,7 @@
  </div>
  @endif
  <div class="panel panel-default">
-   <div class="panel-heading"><h3 class="panel-title">Forumulario de registro de usuario sistema</h3></div>
+   <div class="panel-heading"><h3 class="panel-title">Formulario de registro de usuario sistema</h3></div>
     <div class="panel-body">
 
        <form class="form-horizontal" role="form" method="POST" action="{{ route('users.store') }}">
@@ -91,7 +91,7 @@
 
         <div class="col-sm-12">
           <button type="submit" class="btn btn-primary">
-                                    Gurdar datos
+                                    Guardar datos
          </button>
 
         </div>
