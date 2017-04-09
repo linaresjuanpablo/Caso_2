@@ -16,6 +16,9 @@
 
 
 
+
+Route::group(['middleware' => 'auth'], function() {
+
 //Usuarios
        Route::get('users/create', ["as" => "userCreate", "uses" => "UserController@create"]);
        Route::get('users/userManager', ["as" => "userAdmin", "uses" => "UserController@adminUser"]);
@@ -34,9 +37,6 @@ Route::get('usuarios', ["as" => "userH", "uses" => "UserController@adminUser"]);
        //Pacientes
        Route::get('patients/patientManager', ["as" => "patientAdmin", "uses" => "PatientController@adminPatient"]);
        Route::resource('patients', 'PatientController');
-
-Route::group(['middleware' => 'auth'], function() {
-
 
      //Medicos
        Route::get('doctors/doctorManager', ["as" => "doctorAdmin", "uses" => "DoctorController@adminDoctor"]);
