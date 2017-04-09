@@ -16,9 +16,7 @@
 
 
 
-Route::get('usuarios', ["as" => "userH", "uses" => "UserController@adminUser"]);
-
- //Usuarios
+//Usuarios
        Route::get('users/create', ["as" => "userCreate", "uses" => "UserController@create"]);
        Route::get('users/userManager', ["as" => "userAdmin", "uses" => "UserController@adminUser"]);
        //
@@ -28,6 +26,10 @@ Route::get('usuarios', ["as" => "userH", "uses" => "UserController@adminUser"]);
        Route::get('doctor/cambiarPassword', ["as" => "docEditPass", "uses" => "UserController@doctorEditPassword"]);
        Route::post('doctor/{id}/cambiarPassword', ["as" => "cambiarPass", "uses" => "UserController@cambiarPassword"]);
        Route::resource('users', 'UserController');
+
+
+
+Route::get('usuarios', ["as" => "userH", "uses" => "UserController@adminUser"]);
 
        //Pacientes
        Route::get('patients/patientManager', ["as" => "patientAdmin", "uses" => "PatientController@adminPatient"]);
