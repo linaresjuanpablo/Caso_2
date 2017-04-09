@@ -31,19 +31,19 @@
     <div class="table-responsive">
         <br>
         <table class="table table-bordered  table-fixed">
-            <tr>
-                <td>fecha</td>
-                <td>hora</td>
-                <td>paciente_id</td>
-                <td>medico_id</td>
-                <td>valor</td>
-                <td>estado</td>
-                <td>Editar</td>
-                <td>Eliminar</td>
+            <tr class="info">
+                <td>FECHA</td>
+                <td>HORA</td>
+                <td>PACIENTE</td>
+                <td>MEDICO</td>
+                <td>VALOR CITA</td>
+                <td>ESTADO CITA</td>
+                <td>EDITAR</td>
+                <td>ELIMINAR</td>
           </tr>
           @foreach($list as $appointment)
-            <tr>
-                <td> {{ $appointment->fecha }} </td>
+            <tr class="active">
+                <td> {{ Carbon\Carbon::parse($appointment->fecha)->format('d-m-Y') }} </td>
                 <td> {{ $appointment->hora }} </td>
                 <td> {{ '(' . $appointment->patient_id . ') ' .$appointment->Patient->nombres .' ' .$appointment->Patient->apellidos }} </td>
                 <td> {{ '(' .$appointment->doctor_id .') ' .$appointment->Doctor->nombres .' ' .$appointment->Doctor->apellidos }} </td>

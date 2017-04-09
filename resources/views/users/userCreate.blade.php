@@ -53,14 +53,21 @@
            @if(old('tipo_usuario') =='ADMINISTRADOR')
             <option selected>ADMINISTRADOR</option>
             <option >ASISTENTE</option>
+              <option>MEDICO</option>
            @else
             <option>ADMINISTRADOR</option>
             <option selected>ASISTENTE</option>
-
-          @endif
+            <option>MEDICO</option>
+              @if(old('tipo_usuario')=='MEDICO')
+                <option>ADMINISTRADOR</option>
+                 <option >ASISTENTE</option>
+                 <option selected>MEDICO</option>
+              @endif
+            @endif
           @else
             <option selected>ADMINISTRADOR</option>
-             <option>ASISTENTE</option>
+            <option>ASISTENTE</option>
+            <option>MEDICO</option>
         @endif
       </select>
         </div>

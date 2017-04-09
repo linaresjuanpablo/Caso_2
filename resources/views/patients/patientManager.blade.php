@@ -31,34 +31,31 @@
     <div class="table-responsive">
         <br>
         <table class="table table-bordered  table-fixed">
-            <tr>
-                <td>Número de Documento:</td>
-                <td>Tipo de Documento</td>
-                <td>Nombres</td>
-                <td>Apellidos</td>
-                <td>Sexo</td>
-                <td>Fecha de Nacimiento</td>
+            <tr class='info'>
+                <td>DOCUMENTO</td>
+                <td>TIPO DOCUMENTO</td>
+                <td>NOMBRES</td>
+                <td>APELLIDOS</td>
+                <td>SEXO</td>
+                <td>FECHA NACIMIENTO</td>
                 <td>EPS</td>
-                <td>Teléfono</td>
-                <td>Dirección</td>
-                <td>Nombres Acudiente</td>
-                <td>Telefono Acudiente</td>
-                <td>Editar</td>
-                <td>Eliminar</td>
-          </tr>
+                <td>TELEFONO</td>
+                <td>ACUDIENTE</td>
+                 <td>EDITAR</td>
+                <td>ELIMINAR</td>
+
+            </tr>
           @foreach($list as $patient)
-            <tr>
+            <tr class='active'>
                 <td> {{ $patient->documento }} </td>
                 <td> {{ $patient->tipo_documento }} </td>
                 <td> {{ $patient->nombres }} </td>
                 <td> {{ $patient->apellidos }} </td>
                 <td> {{ $patient->sexo }} </td>
-                <td> {{ $patient->fecha_nacimiento }} </td>
+                <td> {{ Carbon\Carbon::parse($patient->fecha_nacimiento)->format('d-m-Y') }} </td>
                 <td> {{ $patient->eps }} </td>
                 <td> {{ $patient->telefono }} </td>
-                <td> {{ $patient->direccion }} </td>
                 <td> {{ $patient->nombres_acudiente }} </td>
-                <td> {{ $patient->telefono_acudiente }} </td>
                 <td><a href="{{ route('patients.edit', $patient->id) }}" class="btn btn-primary">Editar datos</a></td>
                 <td>{!! Form::open(['method' => 'DELETE', 'route' => ['patients.destroy', $patient->id],'onsubmit' => 'return confirm("Está seguro de eliminar el registro?")']) !!}
                     {!! Form::submit('Eliminar el Paciente', ['class' => 'btn btn-danger']) !!}

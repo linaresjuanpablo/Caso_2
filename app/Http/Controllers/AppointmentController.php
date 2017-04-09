@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Appointment;
 use App\Patient;
 use App\Doctor;
+use App\User;
 use Session;
 use Validator;
 
@@ -15,6 +16,32 @@ class AppointmentController extends Controller
     {
         $appointments = Appointment::all();
         return view('appointments/appointmentManager',['list' => $appointments]);
+    }
+    public function terminarCita($id)
+    {
+
+        $appo=Appointment::findorFail($id);
+
+        $appo->estado='Realizada';
+        $appo->save();
+           $appointments = Appointment::where('doctor_id','=',$appo->doctor_id)->where('estado','=','Pendiente')->get();
+        return view('appointments/appointmentsDoctor',['list' => $appointments]);
+
+
+
+    }
+
+    public function appointmentDoctor($idUser)
+    {
+
+
+        $user=User::findorFail($idUser);
+        $doctor=Doctor::where('email','=',$user->email)->first();
+          $appointments = Appointment::where('doctor_id','=',$doctor->id)->where('estado','=','Pendiente')->get();
+        return view('appointments/appointmentsDoctor',['list' => $appointments]);
+
+
+
     }
 
     public function adminAppointment()

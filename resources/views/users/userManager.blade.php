@@ -21,16 +21,16 @@
       <div class="table-responsive">
        <br>
        <table class="table table-bordered  table-fixed">
-          <tr>
-              <td>Nombres</td>
-              <td>Apellidos</td>
-              <td >Tipo usuario</td>
-              <td>E-mail</td>
-              <td>Editar</td>
-              <td>Eliminar</td>
+          <tr class="info">
+              <td>NOMBRES</td>
+              <td>APELLIDOS</td>
+              <td >TIPO USUARIO</td>
+              <td>E-MAIL</td>
+              <td>EDITAR</td>
+              <td>ELIMINAR</td>
           </tr>
           @foreach($list as $user)
-           <tr>
+           <tr class="active">
              <td> {{ $user->nombres }} </td>
              <td> {{ $user->apellidos }} </td>
              <td> {{ $user->tipo_usuario }} </td>

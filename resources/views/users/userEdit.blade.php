@@ -41,7 +41,7 @@
      <div class="form-group">
      {!! Form::label('lbltipousuario', 'Tipo usuario:', ['class' => 'col-lg-3 control-label']) !!}
 
-                                    {!! Form::select('tipo_usuario', array('' => 'Seleccione...', 'ADMINISTRADOR' => 'ADMINISTRADOR', 'ASISTENTE' => 'ASISTENTE'), $data->tipo_usuario, [ 'class' =>  'form-control',]) !!}
+                                    {!! Form::select('tipo_usuario', array('' => 'Seleccione...', 'ADMINISTRADOR' => 'ADMINISTRADOR', 'ASISTENTE' => 'ASISTENTE', 'MEDICO' => 'MEDICO'), $data->tipo_usuario, [ 'class' =>  'form-control',]) !!}
                                 </div>
 
      <div class="form-group">

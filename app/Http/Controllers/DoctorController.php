@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Doctor;
 use Session;
+use App\User;
 
 class DoctorController extends Controller
 {
@@ -15,7 +16,7 @@ class DoctorController extends Controller
      return view('doctors/doctorManager',['list' => $doctors]);
      }
 
-     public function create(Request $request)
+    public function create(Request $request)
     {
         return view('doctors.doctorCreate');
     }
@@ -33,7 +34,15 @@ class DoctorController extends Controller
        'telefono' => 'required | string | max:50',
 
        ]);
+
        Doctor::create($input);
+       $user=new User;
+       $user->nombres=$request->nombres;
+       $user->apellidos=$request->apellidos;
+       $user->tipo_usuario='MEDICO';
+       $user->email=$request->email;
+       $user->password= $request->documento;
+       $user->save();
        Session::flash('flash_message2', 'Médico registrado correctamente!');
        $doctors = Doctor::all();
        return view('doctors/doctorManager',['list' => $doctors]);
@@ -91,7 +100,10 @@ class DoctorController extends Controller
         try
         {
             $doctor = Doctor::findOrFail($id);
+            $user=User::where('email','=',$doctor->email)->first();
             $doctor->delete();
+            $user->delete();
+
             Session::flash('flash_message2', 'Médico eliminado correctamente!');
             $doctors = Doctor::all();
             return view('doctors/doctorManager',['list' => $doctors]);

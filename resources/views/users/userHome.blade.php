@@ -4,7 +4,7 @@
     <div class='container'></div>
     <div class="col-md-6">
            <br><br>
-          <h1>Bienvenidos al sistema de de la clínica matasanos</h1>
+          <h1>Bienvenidos al sistema de la clínica matasanos</h1>
     </div>
     <div class="col-md-4">
 

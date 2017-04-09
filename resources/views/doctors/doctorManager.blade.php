@@ -31,19 +31,19 @@
     <div class="table-responsive">
         <br>
         <table class="table table-bordered  table-fixed">
-            <tr>
-                <td>Número de Documento:</td>
-                <td>Tipo de Documento</td>
-                <td>Nombres</td>
-                <td>Apellidos</td>
-                <td>Especialidad</td>
-                <td>Email</td>
-                <td>Teléfono</td>
-                <td>Editar</td>
-                <td>Eliminar</td>
+            <tr class='info'>
+                <td>DOCUMENTO</td>
+                <td>TIPO DOCUMENTO</td>
+                <td>NOMBRES</td>
+                <td>APELLIDOS</td>
+                <td>ESPECIALIDAD</td>
+                <td>E-MAIL</td>
+                <td>TELEFONO</td>
+                <td>EDITAR</td>
+                <td>ELIMINAR</td>
           </tr>
           @foreach($list as $doctor)
-            <tr>
+            <tr class='active'>
                 <td> {{ $doctor->documento }} </td>
                 <td> {{ $doctor->tipo_documento }} </td>
                 <td> {{ $doctor->nombres }} </td>

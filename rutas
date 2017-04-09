@@ -1,0 +1,54 @@
++--------+-----------+---------------------------------+----------------------+------------------------------------------------------------------------+--------------+
+| Domain | Method    | URI                             | Name                 | Action                                                                 | Middleware   |
++--------+-----------+---------------------------------+----------------------+------------------------------------------------------------------------+--------------+
+|        | GET|HEAD  | /                               |                      | App\Http\Controllers\HomeController@index                              | web,auth     |
+|        | GET|HEAD  | api/user                        |                      | Closure                                                                | api,auth:api |
+|        | POST      | appointments                    | appointments.store   | App\Http\Controllers\AppointmentController@store                       | web,auth     |
+|        | GET|HEAD  | appointments                    | appointments.index   | App\Http\Controllers\AppointmentController@index                       | web,auth     |
+|        | GET|HEAD  | appointments/appointmentEdit    | appointmentEdit      | App\Http\Controllers\AppointmentController@adminAppointment            | web,auth     |
+|        | GET|HEAD  | appointments/appointmentManager | appointmentAdmin     | App\Http\Controllers\AppointmentController@adminAppointment            | web,auth     |
+|        | GET|HEAD  | appointments/create             | appointments.create  | App\Http\Controllers\AppointmentController@create                      | web,auth     |
+|        | PUT|PATCH | appointments/{appointment}      | appointments.update  | App\Http\Controllers\AppointmentController@update                      | web,auth     |
+|        | GET|HEAD  | appointments/{appointment}      | appointments.show    | App\Http\Controllers\AppointmentController@show                        | web,auth     |
+|        | DELETE    | appointments/{appointment}      | appointments.destroy | App\Http\Controllers\AppointmentController@destroy                     | web,auth     |
+|        | GET|HEAD  | appointments/{appointment}/edit | appointments.edit    | App\Http\Controllers\AppointmentController@edit                        | web,auth     |
+|        | POST      | doctors                         | doctors.store        | App\Http\Controllers\DoctorController@store                            | web,auth     |
+|        | GET|HEAD  | doctors                         | doctors.index        | App\Http\Controllers\DoctorController@index                            | web,auth     |
+|        | GET|HEAD  | doctors/create                  | doctors.create       | App\Http\Controllers\DoctorController@create                           | web,auth     |
+|        | GET|HEAD  | doctors/doctorManager           | doctorAdmin          | App\Http\Controllers\DoctorController@adminDoctor                      | web,auth     |
+|        | DELETE    | doctors/{doctor}                | doctors.destroy      | App\Http\Controllers\DoctorController@destroy                          | web,auth     |
+|        | PUT|PATCH | doctors/{doctor}                | doctors.update       | App\Http\Controllers\DoctorController@update                           | web,auth     |
+|        | GET|HEAD  | doctors/{doctor}                | doctors.show         | App\Http\Controllers\DoctorController@show                             | web,auth     |
+|        | GET|HEAD  | doctors/{doctor}/edit           | doctors.edit         | App\Http\Controllers\DoctorController@edit                             | web,auth     |
+|        | GET|HEAD  | home                            |                      | App\Http\Controllers\HomeController@index                              | web,auth     |
+|        | POST      | login                           |                      | App\Http\Controllers\Auth\LoginController@login                        | web,guest    |
+|        | GET|HEAD  | login                           | login                | App\Http\Controllers\Auth\LoginController@showLoginForm                | web,guest    |
+|        | POST      | logout                          | logout               | App\Http\Controllers\Auth\LoginController@logout                       | web          |
+|        | POST      | password/email                  | password.email       | App\Http\Controllers\Auth\ForgotPasswordController@sendResetLinkEmail  | web,guest    |
+|        | POST      | password/reset                  |                      | App\Http\Controllers\Auth\ResetPasswordController@reset                | web,guest    |
+|        | GET|HEAD  | password/reset                  | password.request     | App\Http\Controllers\Auth\ForgotPasswordController@showLinkRequestForm | web,guest    |
+|        | GET|HEAD  | password/reset/{token}          | password.reset       | App\Http\Controllers\Auth\ResetPasswordController@showResetForm        | web,guest    |
+|        | POST      | patients                        | patients.store       | App\Http\Controllers\PatientController@store                           | web          |
+|        | GET|HEAD  | patients                        | patients.index       | App\Http\Controllers\PatientController@index                           | web          |
+|        | GET|HEAD  | patients/create                 | patients.create      | App\Http\Controllers\PatientController@create                          | web          |
+|        | GET|HEAD  | patients/patientManager         | patientAdmin         | App\Http\Controllers\PatientController@adminPatient                    | web          |
+|        | PUT|PATCH | patients/{patient}              | patients.update      | App\Http\Controllers\PatientController@update                          | web          |
+|        | DELETE    | patients/{patient}              | patients.destroy     | App\Http\Controllers\PatientController@destroy                         | web          |
+|        | GET|HEAD  | patients/{patient}              | patients.show        | App\Http\Controllers\PatientController@show                            | web          |
+|        | GET|HEAD  | patients/{patient}/edit         | patients.edit        | App\Http\Controllers\PatientController@edit                            | web          |
+|        | GET|HEAD  | register                        | register             | App\Http\Controllers\Auth\RegisterController@showRegistrationForm      | web,guest    |
+|        | POST      | register                        |                      | App\Http\Controllers\Auth\RegisterController@register                  | web,guest    |
+|        | GET|HEAD  | reports                         | report1              | App\Http\Controllers\ReportController@reports                          | web,auth     |
+|        | POST      | reports/result                  | repRes               | App\Http\Controllers\ReportController@repCitasFecha                    | web,auth     |
+|        | GET|HEAD  | users                           | users.index          | App\Http\Controllers\UserController@index                              | web          |
+|        | POST      | users                           | users.store          | App\Http\Controllers\UserController@store                              | web          |
+|        | GET|HEAD  | users/create                    | users.create         | App\Http\Controllers\UserController@create                             | web          |
+|        | GET|HEAD  | users/index                     | userIndex            | App\Http\Controllers\UserController@index                              | web          |
+|        | GET|HEAD  | users/userHome                  | userHome             | App\Http\Controllers\UserController@userHome                           | web          |
+|        | GET|HEAD  | users/userManager               | userAdmin            | App\Http\Controllers\UserController@adminUser                          | web          |
+|        | DELETE    | users/{user}                    | users.destroy        | App\Http\Controllers\UserController@destroy                            | web          |
+|        | GET|HEAD  | users/{user}                    | users.show           | App\Http\Controllers\UserController@show                               | web          |
+|        | PUT|PATCH | users/{user}                    | users.update         | App\Http\Controllers\UserController@update                             | web          |
+|        | GET|HEAD  | users/{user}/edit               | users.edit           | App\Http\Controllers\UserController@edit                               | web          |
+|        | GET|HEAD  | usuarios                        | userH                | App\Http\Controllers\UserController@adminUser                          | web          |
++--------+-----------+---------------------------------+----------------------+------------------------------------------------------------------------+--------------+

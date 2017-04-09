@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Session;
+use Validator;
 
 
 class UserController extends Controller
@@ -24,12 +25,51 @@ class UserController extends Controller
 
     }
 
+
+
     public function index(Request $request)
     {
 
      return view('users.userHome');
     }
 
+    public function doctorEditPassword()
+    {
+      return view('doctors/cambiarContrasena');
+    }
+
+    public function cambiarPassword(Request $request ,$id)
+    {
+        $validator = Validator::make($request->all(), [
+        'newPass' => 'required',
+        'rePass' => 'required',
+
+        ]);
+
+     if (!$validator->fails()) {
+            $validator->after(function ($validator) use ($request){
+
+           if ($request->newPass != $request->rePass)
+            {
+             $validator->errors()->add('','las contraseñas escritas no son iguales');
+            }
+
+       });
+
+    }
+
+    if ($validator->fails())
+    {
+
+            return redirect()->back()->withErrors($validator);
+    }
+
+     $user=User::findorFail($id);
+     $user->password=$request->newPass;
+     $user->save();
+     Session::flash('flash_message3', 'Cambio de contraseña éxitoso!');
+     return redirect()->back();
+    }
 
     public function create(Request $request)
     {
