@@ -28,23 +28,23 @@
                         {{ Session::get('flash_message3') }}
                     </article>
                     @endif
-    <div class="table-responsive">
+    <div class="table table-responsive">
         <br>
-        <table class="table table-bordered  table-fixed">
-            <tr>
-                <td>fecha</td>
-                <td>hora</td>
-                <td>paciente</td>
-                <td>estado</td>
-                <td>Terminar cita</td>
+        <table class="table  table-fixed">
+            <tr class='info'>
+                <td>FECHA</td>
+                <td>HORA</td>
+                <td>PACIENTE</td>
+                <td>ESTADO</td>
+                <td>TERMINAR CITA</td>
                </tr>
           @foreach($list as $appointment)
-            <tr>
-                <td> {{ $appointment->fecha }} </td>
+            <tr class='active'>
+                <td> {{ Carbon\Carbon::parse($appointment->fecha)->format('d-m-Y') }} </td>
                 <td> {{ $appointment->hora }} </td>
                 <td> {{ '(' . $appointment->patient_id . ') ' .$appointment->Patient->nombres .' ' .$appointment->Patient->apellidos }} </td>
                 <td> {{ $appointment->estado }} </td>
-                <td><a href="{{ route('endAppo', $appointment->id) }}" class="btn btn-primary">Terminar cita</a></td>
+                <td><a href="{{ route('endAppo', $appointment->id) }}" class="btn btn-primary" onclick=" return confirm('Confirma que desea terminar la cita?')">Terminar cita</a></td>
 
             </tr>
           @endforeach

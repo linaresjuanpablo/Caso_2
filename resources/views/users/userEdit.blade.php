@@ -27,8 +27,11 @@
  <div class="panel panel-default">
    <div class="panel-heading"><h3 class="panel-title">Formulario de edición de usuario sistema</h3></div>
     <div class="panel-body">
-     {!! Form::model($data, ['method' => 'PATCH','route' => ['users.update', $data->id]])  !!}
 
+     {!! Form::model($data, ['method' => 'PATCH','route' => ['users.update', $data->id]])  !!}
+     @if ($data->tipo_usuario=='MEDICO')
+      @include('users/partialUserEdit')
+    @else
      <div class="form-group">
          {!! Form::label('nombres', 'Nombres', ['class' => 'control-label']) !!}
          {!! Form::text('nombres', null, ['class' => 'form-control']) !!}
@@ -41,18 +44,21 @@
      <div class="form-group">
      {!! Form::label('lbltipousuario', 'Tipo usuario:', ['class' => 'col-lg-3 control-label']) !!}
 
-                                    {!! Form::select('tipo_usuario', array('' => 'Seleccione...', 'ADMINISTRADOR' => 'ADMINISTRADOR', 'ASISTENTE' => 'ASISTENTE', 'MEDICO' => 'MEDICO'), $data->tipo_usuario, [ 'class' =>  'form-control',]) !!}
+                                    {!! Form::select('tipo_usuario', array('' => 'Seleccione...', 'ADMINISTRADOR' => 'ADMINISTRADOR', 'ASISTENTE' => 'ASISTENTE'), $data->tipo_usuario, [ 'class' =>  'form-control',]) !!}
                                 </div>
 
      <div class="form-group">
          {!! Form::label('email', 'Email', ['class' => 'control-label']) !!}
          {!! Form::text('email', null, ['class' => 'form-control']) !!}
      </div>
+
     <div class="form-group">
  {!! Form::label('password', 'Password', ['class' => 'control-label']) !!}
  {!! Form::password('password', ['class' => 'form-control']) !!}
 </div>
+
 {!! Form::submit('Guardar datos', ['class' => 'btn btn-primary']) !!}
+ @endif
 {!! Form::close() !!}
 
      </div>

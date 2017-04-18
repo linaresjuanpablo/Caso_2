@@ -82,7 +82,13 @@ class DoctorController extends Controller
                'telefono' => 'required | string | max:50',
                ]);
             $input = $request->all();
+            $oldEmail=$doctor->email;
             $doctor->fill($input)->save();
+            $user=User::where('email','=',$oldEmail)->first();
+            $user->nombres=$request->nombres;
+            $user->apellidos=$request->apellidos;
+            $user->email=$request->email;
+            $user->save();
             Session::flash('flash_message2', 'Medico editado correctamente!');
             $doctors = Doctor::all();
             return view('doctors/doctorManager',['list' => $doctors]);

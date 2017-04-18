@@ -12,14 +12,14 @@
 */
 
 
-//Rutas users
 
 
 
 
 Route::group(['middleware' => 'auth'], function() {
 
-//Usuarios
+
+    //Usuarios
        Route::get('users/create', ["as" => "userCreate", "uses" => "UserController@create"]);
        Route::get('users/userManager', ["as" => "userAdmin", "uses" => "UserController@adminUser"]);
        //
@@ -29,10 +29,7 @@ Route::group(['middleware' => 'auth'], function() {
        Route::get('doctor/cambiarPassword', ["as" => "docEditPass", "uses" => "UserController@doctorEditPassword"]);
        Route::post('doctor/{id}/cambiarPassword', ["as" => "cambiarPass", "uses" => "UserController@cambiarPassword"]);
        Route::resource('users', 'UserController');
-
-
-
-Route::get('usuarios', ["as" => "userH", "uses" => "UserController@adminUser"]);
+       Route::get('usuarios', ["as" => "userH", "uses" => "UserController@adminUser"]);
 
        //Pacientes
        Route::get('patients/patientManager', ["as" => "patientAdmin", "uses" => "PatientController@adminPatient"]);
@@ -51,13 +48,6 @@ Route::get('usuarios', ["as" => "userH", "uses" => "UserController@adminUser"]);
        Route::get('reports', ["as" => "report1", "uses" => "ReportController@reports"]);
        Route::post('/reports/result', ["as" => "repRes", "uses" => "ReportController@repCitasFecha"]);
      });
-
-
-
-
-
-
-
 
 Auth::routes();
 Route::get('/', 'HomeController@index');

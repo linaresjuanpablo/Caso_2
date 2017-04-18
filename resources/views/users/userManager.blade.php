@@ -35,6 +35,11 @@
              <td> {{ $user->apellidos }} </td>
              <td> {{ $user->tipo_usuario }} </td>
              <td> {{ $user->email }} </td>
+             @if($user->tipo_usuario=='MEDICO')
+              <td><a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary">Cambiar contraseña</a></td>
+              <td>----</td>
+             @else
+
              <td><a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary">Editar datos</a></td>
                <td>{!! Form::open([
                 'method' => 'DELETE',
@@ -44,6 +49,7 @@
                {!! Form::submit('Eliminar usuario', ['class' => 'btn btn-danger']) !!}
                {!! Form::close() !!}
               </td>
+              @endif
            </tr>
           @endforeach
          </table>
